@@ -8,8 +8,12 @@
 #include <vector>
 #include <tlhelp32.h>
 
-inline constexpr ULONG_PTR ring3Addr = 0x94000000;
 namespace CVE_2021_40449
 {
+    VOID InjectToWinlogon();
+    VOID EXPSprayPalettes(DWORD size);
+    DWORD64 CreateForgedBitMapHeader(DWORD64 token);
+    DHPDEV EXPhook_DrvEnablePDEV(DEVMODEW* pdm, LPWSTR pwszLogAddress, ULONG cPat, HSURF* phsurfPatterns, ULONG cjCaps, ULONG* pdevcaps, ULONG cjDevInfo, DEVINFO* pdi, HDEV hdev, LPWSTR pwszDeviceName, HANDLE hDriver);
+
     bool Exp();
 } // namespace CVE_2021_40449

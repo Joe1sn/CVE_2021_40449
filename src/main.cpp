@@ -6,7 +6,7 @@
 using namespace CVE_2021_40449;
 int main()
 {
-    CVE_2021_40449::PoC();
-    // CVE_2021_40449::Exp();
+    // CVE_2021_40449::PoC();
+    CVE_2021_40449::Exp();
     return 0;
 }

