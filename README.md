@@ -6,7 +6,7 @@ poc and exp for CVE_2021_40449, related to my analyze, use cmake.
 关于分析文章：
 
 - 微信公众号：https://mp.weixin.qq.com/s/iFHugiO15urn8YVU6to6mQ
-- 我的博客：https://joe1sn.eu.org/2026/06/17/CVE-2021-40449/
+- 我的博客：https://joe1sn.eu.org/2026/07/12/CVE-2021-40449/
 
 或许我们的微信公众号< **不止Sec** >会有你更多感兴趣的内容
 
